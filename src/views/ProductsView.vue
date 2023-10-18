@@ -1,6 +1,6 @@
 <template>
-<!-- Titre de la section des produits -->
   <div>
+    <!-- Titre de la section des produits -->
     <h1>Produits</h1>
     <div class="button-container justify-content-end">
       <Router-link :to="{name: 'new-product'}" class="btn btn-ajouter">+ Ajouter</Router-link>
@@ -13,9 +13,9 @@
           <!-- Product details-->
           <div class="card-body px-2">
               <div class="text-center">
-                  <!-- Product name-->
+                  <!-- Product nom-->
                   <h5 class="fw-bolder">{{product.nom}}</h5>
-                  <!-- Product price-->
+                  <!-- Product prix-->
                   <!-- toFixed(2) est une fonction JS pour décimaux -->
                   ${{product.prix.toFixed(2)}}
               </div>

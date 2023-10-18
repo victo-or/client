@@ -10,7 +10,6 @@
             <!-- Lien vers la page des produits -->
             <router-link class='link' to="/products">Produits</router-link>
         </nav>
-        <!-- Affiche un bouton "+" (Ajouter) ou "x" (Fermer) sur la page des produits -->
     </header>
     <router-view
     :inventory = "inventory"
@@ -18,36 +17,24 @@
     :removeInv = "removeInventory"
     :updateInv = "updateInventory"
     />
-  </div>
-  <footer>
-    &copy; 2023 Super Pawn Shop. Tous droits réservés.
+    <footer>
+      &copy; 2023 Super Pawn Shop. Tous droits réservés.
   </footer>
+  </div>
+
 </template>
 
 <script>
-// import product from '@/product.json'
 import ProductDataService from '@/services/ProductDataService'
 export default {
   data () {
     return {
       showSideBar: false,
-      // inventory: product, // lorsque ça venait de product.json
       inventory: [],
       cart: {}
     }
   },
   methods: {
-    // toggleSidebar () {
-    //   this.showSideBar = !this.showSideBar
-    // },
-    // addToCart (product, index) {
-    //   if (!this.cart[product]) this.cart[product] = 0
-    //   this.cart[product] += this.inventory[index].quantity
-    //   // console.log(this.cart[product])
-    // },
-    // removeItem (name) {
-    //   delete this.cart[name]
-    // },
     addInventory (data) {
       this.inventory.push(data)
     },
@@ -62,13 +49,6 @@ export default {
       this.inventory[index].categorie = data.categorie
     }
   },
-  // computed: {
-  //   totalQuantity () {
-  //     return Object.values(this.cart).reduce((acc, curr) => {
-  //       return acc + curr
-  //     }, 0)
-  //   }
-  // }
   mounted () {
     ProductDataService.getAll()
       .then(response => {

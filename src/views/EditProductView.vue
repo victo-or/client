@@ -1,10 +1,9 @@
 <template>
     <div>
       <h1>Modifier un produit</h1>
-      <!-- <div v-show="message" class="alert alert-success">{{message}}</div> -->
       <div class="product">
         <div class="needs-validation" novalidate>
-          <div  v-if="!submitted" class="input form-control">
+          <div class="input form-control">
             <label class="form-label">
                 Nom
                 <input
@@ -64,8 +63,6 @@ export default {
   props: ['inventory', 'updateInv'],
   data () {
     return {
-      message: null,
-      submitted: false,
       product: {},
       id: parseInt(this.$route.params.id)
     }
@@ -75,9 +72,8 @@ export default {
       ProductDataService.update(this.id, this.product)
         .then(response => {
           this.updateInv(this.productIndex, this.product)
-          console.log(response.data.message)
-          this.$router.push({ name: 'product', message: response.data.message })
-          this.message = response.data.message
+          // console.log(response.data.message)
+          this.$router.push({ name: 'product' })
         })
     }
   },

@@ -2,7 +2,6 @@
   <div>
     <h1>Ajouter un produit</h1>
     <div class="product">
-      <!-- Section-->
       <form @submit.prevent="saveProduct">
         <div class="justify-content-center">
           <div class="col-sm-12">
@@ -11,7 +10,7 @@
               <div class="input form-control">
                 <div v-if="!submitted">
                   <div>
-                    <label for="productNom" class="form-label">
+                    <label class="form-label">
                       Nom de produit
                       <input
                         type="text"
@@ -21,10 +20,9 @@
                         required
                       />
                     </label>
-                    <!-- <div class="invalid-feedback">Un nom valide est requis.</div> -->
                   </div>
                   <div>
-                    <label for="productPhoto" class="form-label">Photo
+                    <label class="form-label">Photo
                       <input
                         type="text"
                         class="form-control"
@@ -33,11 +31,9 @@
                         required
                       />
                     </label>
-                    <!-- <div class="invalid-feedback">Une photo valide est requise.</div> -->
                   </div>
                   <div>
-                    <label for="productPrix" class="form-label">Prix
-                      <!-- <span class="input-group-text">CAD</span> -->
+                    <label class="form-label">Prix
                       <input
                         type="number"
                         step="0.01"
@@ -47,10 +43,9 @@
                         required
                       />
                     </label>
-                      <!-- <div class="invalid-feedback">Le prix est requis.</div> -->
                   </div>
                   <div>
-                    <label for="productDescription" class="form-label">Description
+                    <label class="form-label">Description
                       <input
                         type="text"
                         class="form-control"
@@ -59,10 +54,9 @@
                         required
                       />
                     </label>
-                    <!-- <div class="invalid-feedback">Description requise.</div> -->
                   </div>
                   <div>
-                    <label for="productCategorie" class="form-label">Catégorie
+                    <label class="form-label">Catégorie
                       <input
                         type="text"
                         class="form-control"
@@ -71,7 +65,6 @@
                         required
                       />
                     </label>
-                    <!-- <div class="invalid-feedback">Catégorie requise.</div> -->
                   </div>
                   <button class="w-100 btn btn-secondary btn-lg mt-3 btn-ajouter" type="submit">Ajouter</button>
                 </div>

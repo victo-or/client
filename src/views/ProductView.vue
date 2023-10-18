@@ -24,10 +24,8 @@
             </tbody>
           </table>
           <div class="button-container">
-            <!-- <button class="modify-button">Modifier</button> -->
             <Router-link :to="{name: 'edit-product', params: {id: product.id}}" class="btn btn-modifier">Modifier</Router-link>
             <button class="btn btn-effacer" type="button" @click="deleteProduct">Delete </button>
-            <!-- <button class="delete-button">Effacer</button> -->
           </div>
         </div>
       </div>
@@ -48,7 +46,7 @@ export default {
   props: ['removeInv', 'inventory', 'updateInv'],
   data () {
     return {
-      // message: null,
+      message: null,
       id: parseInt(this.$route.params.id)
     }
   },
@@ -70,17 +68,9 @@ export default {
     }
   },
   methods: {
-    // updateProduct () {
-    //   ProductDataService.update(this.id, this.product)
-    //     .then(response => {
-    //       this.updateInv(this.productIndex, this.product)
-    //       this.message = response.data.message
-    //     })
-    // },
     deleteProduct () {
       ProductDataService.delete(this.id)
         .then(response => {
-          // this.remove(this.product.nom)
           this.removeInv(this.productIndex)
           // this.$router.push({ name: 'products' })
         })
@@ -90,11 +80,6 @@ export default {
     ProductDataService.get(this.id)
       .then(response => {
         this.product = response.data
-        // Récupérer le message s'il est présent dans les paramètres de route
-        const message = this.$route.params.message
-        if (message) {
-          this.message = message
-        }
       })
   }
 }
